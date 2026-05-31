@@ -1,6 +1,6 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: ; /* Un azul claro como el cielo de NZ */
+    background-color:aquamarine; /* Un azul claro como el cielo de NZ */
 }
 
 /* --- ESTILOS BASE (Para Celulares - Mobile First) --- */
@@ -18,16 +18,22 @@ body{
     border-radius: 8px;
     padding: 15px;
 }
-img{
-    width: 400px;
+.img-fluid,
+.tarjeta-producto img {
+    max-width: 100%;
     height: auto;
     padding: 10px;
     border-radius: 8px;
 }
-p, h2{
+p {
     color: #333;
     font-size: 16px;
     text-align: center;
+}
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 0.75rem;
 }
 
 
@@ -42,9 +48,8 @@ p, h2{
 }
 /* El contenedor padre se vuelve flexible */
 .contenedor-principal {
-    display: grid;
-    /* Creamos 4 columnas del mismo tamaño */
-    grid-template-columns: repeat(4, 1fr); 
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -60,13 +65,6 @@ p, h2{
     padding: 15px;
     border-radius: 8px;
 }
-/* Por defecto (para celulares), se muestran uno abajo del otro */
-.contenedor-principal {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 /* Cuando la pantalla sea más grande que una tablet (768px), se ponen de costado */
 @media (min-width: 768px) {
 .contenedor-principal {
@@ -114,4 +112,33 @@ footer {
     border-top: 1px solid #141313;
     margin-top: 20px;
     
+}
+/* Estilos para el botón Ir Arriba */
+#btn-ir-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background-color: #24158f; /* Color negro elegante */
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 50%; /* Lo hace completamente redondo */
+    font-size: 18px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s, visibility 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btn-ir-arriba.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Efecto visual cuando el usuario pasa el cursor sobre el botón */
+#btn-ir-arriba:hover {
+    background-color: #333; /* Cambia a gris oscuro al pasar el mouse */
 }
